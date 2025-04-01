@@ -1,8 +1,8 @@
-import java.util.Arrays;
-
 public class Main {
+    private static final Employee[] employees = new Employee[10];
+
     public static void main(String[] args) {
-        Employee[] employees = new Employee[10];
+
         employees[0] = new Employee("Иванилов Артем Серегеевич", 1, 60000);
         employees[1] = new Employee("Дегтярь Екатерина Николаевна", 2, 650);
         employees[2] = new Employee("Прудникова Екатерина Николаевна", 3, 66000);
@@ -14,27 +14,25 @@ public class Main {
         employees[8] = new Employee("Тур Сергей Андреевич", 4, 61003);
         employees[9] = new Employee("Ханталин Виталий Николаевич", 5, 55000);
 
-        printEmployee(employees);
+        printEmployee();
         System.out.println();
-        System.out.println("Затраты на ЗП в месяц составляют: " + sumOfSalary(employees) + " рублей.");
+        System.out.println("Затраты на ЗП в месяц составляют: " + sumOfSalary() + " рублей.");
         System.out.println();
-        System.out.println("Сотрудник с минимальной ЗП - " + findEmployeeWithMinSalary(employees));
+        System.out.println("Сотрудник с минимальной ЗП - " + findEmployeeWithMinSalary());
+        System.out.println("Сотрудник с максимальной ЗП - " + findEmployeeWithMaxSalary());
+        System.out.println("Средняя зарпалата составляет - " + findMidSalary());
         System.out.println();
-        System.out.println("Сотрудник с максимальной ЗП - " + findEmployeeWithMaxSalary(employees));
-        System.out.println();
-        System.out.println("Средняя зарпалата составляет - " + findMidSalary(employees));
-        System.out.println();
-        printNicks(employees);
+        printNicks();
 
     }
 
-    public static void printEmployee(Employee[] employees) {
+    public static void printEmployee() {
         for (int i = 0; i <= employees.length - 1; i++) {
             System.out.print(employees[i].toString());
         }
     }
 
-    public static int sumOfSalary(Employee[] employees) {
+    public static int sumOfSalary() {
         int sum = 0;
         for (int i = 0; i <= employees.length - 1; i++) {
             sum += employees[i].getSalary();
@@ -42,7 +40,7 @@ public class Main {
         return sum;
     }
 
-    public static Employee findEmployeeWithMinSalary(Employee[] employees) {
+    public static Employee findEmployeeWithMinSalary() {
         Employee employeeWithMinSalary = employees[0];
         for (int i = 1; i <= employees.length - 1; i++) {
             if (employeeWithMinSalary.getSalary() > employees[i].getSalary()) {
@@ -52,7 +50,7 @@ public class Main {
         return employeeWithMinSalary;
     }
 
-    public static Employee findEmployeeWithMaxSalary(Employee[] employees) {
+    public static Employee findEmployeeWithMaxSalary() {
         Employee employeeWithMaxSalary = employees[0];
         for (int i = 1; i <= employees.length - 1; i++) {
             if (employeeWithMaxSalary.getSalary() < employees[i].getSalary()) {
@@ -62,11 +60,11 @@ public class Main {
         return employeeWithMaxSalary;
     }
 
-    public static double findMidSalary(Employee[] employees) {
-        return (double) sumOfSalary(employees) / employees.length;
+    public static double findMidSalary() {
+        return (double) sumOfSalary() / employees.length;
     }
 
-    public static void printNicks(Employee[] employees) {
+    public static void printNicks() {
         for (int i = 0; i <= employees.length - 1; i++) {
             System.out.println(employees[i].getNick());
         }
