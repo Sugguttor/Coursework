@@ -24,7 +24,7 @@ public class Main {
         System.out.println();
         printNicks();
         System.out.println();
-        increaseSalary();
+        increaseSalary(5);
         System.out.println();
         printEmployee();
         System.out.println();
@@ -40,7 +40,6 @@ public class Main {
         findSalaryLessThanNumber(20000);
         System.out.println();
         findSalaryMoreThanNumber(60000);
-
 
 
     }
@@ -89,8 +88,7 @@ public class Main {
         }
     }
 
-    public static void increaseSalary() {
-        int index = 5;
+    public static void increaseSalary(int index) {
         for (int i = 0; i <= EMPLOYEES.length - 1; i++) {
             EMPLOYEES[i].setSalary(EMPLOYEES[i].getSalary() + (EMPLOYEES[i].getSalary() * index / 100));
         }
@@ -99,10 +97,8 @@ public class Main {
     public static Employee findEmployeeWithMinSalaryInDepartment(int departmentId) {
         Employee employeeWithMinSalaryInDepartment = null;
         for (int i = 0; i <= EMPLOYEES.length - 1; i++) {
-            if (EMPLOYEES[i].getDepartment() == departmentId) {
-                if (employeeWithMinSalaryInDepartment == null || employeeWithMinSalaryInDepartment.getSalary() > EMPLOYEES[i].getSalary()) {
-                    employeeWithMinSalaryInDepartment = EMPLOYEES[i];
-                }
+            if (EMPLOYEES[i].getDepartment() == departmentId && (employeeWithMinSalaryInDepartment == null || employeeWithMinSalaryInDepartment.getSalary() > EMPLOYEES[i].getSalary())) {
+                employeeWithMinSalaryInDepartment = EMPLOYEES[i];
             }
         }
         return employeeWithMinSalaryInDepartment;
@@ -111,10 +107,8 @@ public class Main {
     public static Employee findEmployeeWithMaxSalaryInDepartment(int departmentId) {
         Employee employeeWithMaxSalaryInDepartment = null;
         for (int i = 0; i <= EMPLOYEES.length - 1; i++) {
-            if (EMPLOYEES[i].getDepartment() == departmentId) {
-                if (employeeWithMaxSalaryInDepartment == null || employeeWithMaxSalaryInDepartment.getSalary() < EMPLOYEES[i].getSalary()) {
-                    employeeWithMaxSalaryInDepartment = EMPLOYEES[i];
-                }
+            if (EMPLOYEES[i].getDepartment() == departmentId && (employeeWithMaxSalaryInDepartment == null || employeeWithMaxSalaryInDepartment.getSalary() < EMPLOYEES[i].getSalary())) {
+                employeeWithMaxSalaryInDepartment = EMPLOYEES[i];
             }
         }
         return employeeWithMaxSalaryInDepartment;
@@ -142,7 +136,9 @@ public class Main {
 
     public static int findMidSalaryInDepartment(int departmentId) {
         int midSalaryInDepartment = 0;
-        midSalaryInDepartment = sumOfSalaryInDepartment(departmentId) / sumOfEmployeesInDepartment(departmentId);
+        if (sumOfEmployeesInDepartment(departmentId) != 0) {
+            midSalaryInDepartment = sumOfSalaryInDepartment(departmentId) / sumOfEmployeesInDepartment(departmentId);
+        }
         return midSalaryInDepartment;
     }
 
