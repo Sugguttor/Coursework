@@ -136,9 +136,9 @@ public class Main {
 
     public static int findMidSalaryInDepartment(int departmentId) {
         int midSalaryInDepartment = 0;
-        if (sumOfEmployeesInDepartment(departmentId) != 0) {
-            midSalaryInDepartment = sumOfSalaryInDepartment(departmentId) / sumOfEmployeesInDepartment(departmentId);
-        }
+        int sumOfEmployeesInDepartment = sumOfEmployeesInDepartment(departmentId);
+        if (sumOfEmployeesInDepartment != 0)
+            midSalaryInDepartment = sumOfSalaryInDepartment(departmentId) / sumOfEmployeesInDepartment;
         return midSalaryInDepartment;
     }
 
