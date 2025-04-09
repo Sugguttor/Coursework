@@ -1,13 +1,23 @@
 public class Main {
 
-    public  static EmployeeBook employeeBook = new EmployeeBook();
+    public static EmployeeBook employeeBook = new EmployeeBook();
+
+
     public static void main(String[] args) {
 
-
-        employeeBook.addEmployee();
+        employeeBook.addEmployee("Иванилов Артем Сергеевич", 1, 60000);
+        employeeBook.addEmployee("Дегтярь Екатерина Николаевна", 2, 650);
+        employeeBook.addEmployee("Прудникова Екатерина Николаевна", 3, 66000);
+        employeeBook.addEmployee("Силина Зинаида Николаевна", 4, 67000);
+        employeeBook.addEmployee("Коновалов Денис Игоревич", 5, 3500);
+        employeeBook.addEmployee("Вовк Сергей Михайлович", 1, 120000);
+        employeeBook.addEmployee("Ожередов Михаил Геннадьевич", 2, 25500);
+        employeeBook.addEmployee("Гудина Игорь Григорьевич", 3, 62000);
+        employeeBook.addEmployee("Тур Сергей Андреевич", 4, 61003);
+        employeeBook.addEmployee("Ханталин Виталий Николаевич", 5, 55000);
         employeeBook.printEmployee();
         System.out.println();
-        System.out.println("Затраты на ЗП в месяц составляют: " + employeeBook.sumOfSalary() + " рублей.");
+        System.out.println("Затраты на ЗП в месяц составляют: " + employeeBook.calculateSumOfSalary() + " рублей.");
         System.out.println();
         System.out.println("Сотрудник с минимальной ЗП - " + employeeBook.findEmployeeWithMinSalary());
         System.out.println("Сотрудник с максимальной ЗП - " + employeeBook.findEmployeeWithMaxSalary());
@@ -32,12 +42,14 @@ public class Main {
         System.out.println();
         employeeBook.findSalaryMoreThanNumber(60000);
         System.out.println();
-        System.out.println(employeeBook.addNewEmployee());
+        System.out.println(employeeBook.addNewEmployee("Доценко Владимир Анатольевич",4,80000));
         System.out.println();
         employeeBook.deleteEmployee(7);
         employeeBook.printEmployee();
         System.out.println();
         System.out.println(employeeBook.findEmployeeById(8));
+        employeeBook.addNewEmployee("Доценко Владимир Анатольевич",4,80000);
+        employeeBook.printEmployee();
     }
 }
 
