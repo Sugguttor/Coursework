@@ -1,6 +1,6 @@
 public class Main {
 
-    public static EmployeeBook employeeBook = new EmployeeBook();
+    private static final EmployeeBook employeeBook = new EmployeeBook();
 
 
     public static void main(String[] args) {
